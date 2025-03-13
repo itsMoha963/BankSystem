@@ -6,6 +6,8 @@
 #include "clsClientListScreen.h"
 #include "clsAddNewClientScreen.h"
 #include "clsDeleteClientScreen.h"
+#include "clsUpdateClientScreen.h"
+#include "clsFindClientScreen.h"
 
 using namespace std;
 
@@ -49,11 +51,11 @@ private:
     }
     static void _ShowFindClientScreen()
     {
-        cout << "TODO: Show Find Client Screen is not implemented yet...\n";
+        clsFindClientScreen::showFindClientScreen();
     }
     static void _ShowUpdateClientScreen()
     {
-        cout << "TODO: Show Update Client Screen is not implemented yet...\n";
+        clsUpdateClientScreen::UpdateClient();
     }
     static void _ShowManageUsersMenue()
     {
