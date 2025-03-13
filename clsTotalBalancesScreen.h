@@ -19,9 +19,11 @@ private:
 public:
     static void ShowTotalBalances()
     {
-        _DrawScreenHeader("\t   Total Balance Screen");
         vector<clsBankClient> vClients = clsBankClient::GetClientsList();
-        cout << "\n\t\t\t\t\tBalances List (" << vClients.size() << ") Client(s).";
+        string title = "\t   Total Balance Screen";
+        string subtitle = "\t    (" + to_string(vClients.size()) + ") Client(s).";
+        _DrawScreenHeader(title, subtitle);
+
         cout << "\n_______________________________________________________";
         cout << "_________________________________________\n"
              << endl;
