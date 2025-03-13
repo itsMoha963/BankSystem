@@ -9,6 +9,7 @@
 #include "clsUpdateClientScreen.h"
 #include "clsFindClientScreen.h"
 #include "clsTransactionsScreen.h"
+#include "clsManageUsers.h"
 
 using namespace std;
 
@@ -60,7 +61,7 @@ private:
     }
     static void _ShowManageUsersMenue()
     {
-        cout << "TODO: Show Manage Users Menue Screen is not implemented yet...\n";
+        clsManageUsers::ShowManageUsersMenue();
     }
     static void _ShowTransactionsMenue()
     {
@@ -68,7 +69,7 @@ private:
     }
     static void _ShowExitScreen()
     {
-        cout << "TODO: Show Exit Screen is not implemented yet...\n";
+        cout << "TODO: Show Manage Users Menue Screen is not implemented yet...\n";
     }
     static void _PerformMainMenueOption(enMainMenueOptions MainMenueOption)
     {
