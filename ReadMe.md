@@ -1,6 +1,6 @@
 # OOP Projects
 
-This repository contains various Object-Oriented Programming (OOP) projects implemented in C++. Each project demonstrates different OOP concepts such as classes, inheritance, polymorphism, encapsulation, and more.
+This repository contains Object-Oriented Programming (OOP) project implemented in C++. This project demonstrates different OOP concepts such as classes, inheritance, polymorphism, encapsulation, and more.
 
 ## Projects
 
@@ -27,12 +27,12 @@ To get started with these projects, follow the instructions below.
    ````
 2. Compile the code:
 
-```sh
-  g++ -o main main.cpp sClient.cpp
-```
+   ```sh
+   g++ -o main main.cpp sClient.cpp
+   ```
 
 3. Run the executable:
 
-```sh
-./main
-```
+   ```sh
+   ./main
+   ```
