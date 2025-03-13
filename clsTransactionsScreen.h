@@ -5,6 +5,7 @@
 #include "clsScreen.h"
 #include "clsDepositScreen.h"
 #include "clsWithdrawScreen.h"
+#include "clsTotalBalancesScreen.h"
 
 class clsTransactionsScreen : protected clsScreen
 {
@@ -42,7 +43,7 @@ private:
 
     static void _ShowTotalBalancesScreen()
     {
-        cout << "nothing for now";
+        clsTotalBalancesScreen::ShowTotalBalances();
     }
 
     static void _PerformTransactionMenueOption(enTransactionsMenueOption TransactionOption)

@@ -299,13 +299,15 @@ public:
 
     bool WithDraw(double Amount)
     {
-        if (Amount > _AccountBalance)
+        if (Amount <= 0) // Prevent negative or zero withdrawal
             return false;
-        else
-        {
-            _AccountBalance -= Amount;
-            Save();
-        }
-        return false;
+
+        if (Amount > _AccountBalance) // Check if balance is sufficient
+            return false;
+
+        _AccountBalance -= Amount;
+        Save();
+
+        return true; // Indicate successs
     }
 };
