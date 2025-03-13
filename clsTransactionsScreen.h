@@ -3,6 +3,8 @@
 #include <iomanip>
 #include "clsInputValidate.h"
 #include "clsScreen.h"
+#include "clsDepositScreen.h"
+#include "clsWithdrawScreen.h"
 
 class clsTransactionsScreen : protected clsScreen
 {
@@ -30,12 +32,12 @@ private:
 
     static void _ShowDepositScreen()
     {
-        cout << "nothing for now";
+        clsDepositScreen::ShowDepositScreen();
     }
 
     static void _ShowWithdrawScreen()
     {
-        cout << "nothing for now";
+        clsWithdrawScreen::ShowWithdrawScreen();
     }
 
     static void _ShowTotalBalancesScreen()

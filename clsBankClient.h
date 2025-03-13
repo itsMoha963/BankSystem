@@ -268,6 +268,7 @@ public:
         default:
             return enSaveResults::svFailedEmptyObject;
         }
+        return enSaveResults::svFailedEmptyObject;
     }
 
     static clsBankClient GetAddNewClinetObject(string AccountNumber)
@@ -288,5 +289,23 @@ public:
             TotalBalances += cli.getAccountBalance();
         }
         return TotalBalances;
+    }
+
+    void Deposit(double Amount)
+    {
+        _AccountBalance += Amount;
+        Save();
+    }
+
+    bool WithDraw(double Amount)
+    {
+        if (Amount > _AccountBalance)
+            return false;
+        else
+        {
+            _AccountBalance -= Amount;
+            Save();
+        }
+        return false;
     }
 };

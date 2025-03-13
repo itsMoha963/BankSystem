@@ -10,6 +10,17 @@
 
 class clsInputValidate
 {
+private:
+	static double _ReadDblNumber(double &Number, string ErrorMessage = "Invalid Number, Enter again\n")
+	{
+		while (!(cin >> Number))
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << ErrorMessage;
+		}
+		return Number;
+	}
 
 public:
 	static bool IsNumberBetween(short Number, short From, short To)
@@ -113,6 +124,18 @@ public:
 			cout << ErrorMessage;
 		}
 		return Number;
+	}
+	static double ReadPositiveDblNumber(string ErrorMessage = "NOT A POSITIV NUMBER, Enter again\n")
+	{
+		double number;
+		while (true)
+		{
+			_ReadDblNumber(number, ErrorMessage);
+			if (number >= 0)
+				break;			  // if the number greater or equal to 0 than its positiv
+			cout << ErrorMessage; // if not it will print the error message twice here and in the ReadnumberDBL function
+		}
+		return number;
 	}
 
 	static double ReadDblNumberBetween(double From, double To, string ErrorMessage = "Number is not within range, Enter again:\n")
