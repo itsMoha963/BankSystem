@@ -8,6 +8,7 @@
 #include "clsDeleteClientScreen.h"
 #include "clsUpdateClientScreen.h"
 #include "clsFindClientScreen.h"
+#include "clsTransactionsScreen.h"
 
 using namespace std;
 
@@ -63,7 +64,7 @@ private:
     }
     static void _ShowTransactionsMenue()
     {
-        cout << "TODO: Show Transactions Menue Screen is not implemented yet...\n";
+        clsTransactionsScreen::ShowTransactionsMenue();
     }
     static void _ShowExitScreen()
     {
