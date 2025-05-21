@@ -1,4 +1,4 @@
-# OOP Projects OOP Projects
+# OOP Projects 
 Note: This project is fully functional on Windows. Compatibility with other operating systems has not been tested or may encounter issues.
 
 This repository contains Object-Oriented Programming (OOP) project implemented in C++. This project demonstrates different OOP concepts such as classes, inheritance, polymorphism, encapsulation, and more.
