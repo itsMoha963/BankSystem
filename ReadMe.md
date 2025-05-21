@@ -20,8 +20,8 @@ To get started with these projects, follow the instructions below.
 
 1. Clone the repository:
    ````sh
-   git clone https://github.com/yourusername/oopProjects.git
-   cd oopProjects```
+   git clone https://github.com/yourusername/BankSystem.git
+   cd BankSystem```
    ````
 2. Compile the code:
 
