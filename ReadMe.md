@@ -4,10 +4,7 @@ This repository contains Object-Oriented Programming (OOP) project implemented i
 
 ## Projects
 
-1. **sClient Class**
-   - Demonstrates the use of classes and encapsulation.
-   - Includes getters and setters for private member variables.
-   - Example usage of the `sClient` class to manage client information.
+
 
 ## Getting Started
 
