@@ -1,8 +1,8 @@
 #pragma once
 #include <iostream>
 #include <iomanip>
-#include "clsBankClient.h"
-#include "clsScreen.h"
+#include "..\clsBankClient.h"
+#include "..\clsScreen.h"
 using namespace std;
 class clsClientListScreen : protected clsScreen
 {

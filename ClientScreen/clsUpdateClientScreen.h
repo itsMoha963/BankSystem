@@ -1,13 +1,18 @@
 #pragma once
 #include <iostream>
 #include <iomanip>
-#include "clsBankClient.h"
-#include "clsScreen.h"
-#include "clsInputValidate.h"
-
-class clsAddNewClientScreen : protected clsScreen
+#include "..\utils\clsInputValidate.h"
+#include "..\clsScreen.h"
+#include "..\clsBankClient.h"
+using namespace std;
+class clsUpdateClientScreen : protected clsScreen
 {
 private:
+    static void _ScreenHeader()
+    {
+        string Title = "\t Update Client Screen";
+        _DrawScreenHeader(Title);
+    }
     static void _ReadClientInfo(clsBankClient &Client)
     {
         string temp;
@@ -31,11 +36,6 @@ private:
         Ftemp = clsInputValidate::ReadFloatNumber();
         Client.setAccountBalance(Ftemp);
     }
-    static void _ScreenHeader()
-    {
-        string Title = "\t Add New Client Screen";
-        _DrawScreenHeader(Title);
-    }
     static void _PrintClient(clsBankClient cli)
     {
         cout << "\nClient Card:";
@@ -52,37 +52,38 @@ private:
     }
 
 public:
-    static void AddNewClient()
+    static void UpdateClient()
     {
         _ScreenHeader();
         string AccountNumber = "";
-        cout << "\nPlease Enter Account Number: ";
+        cout << "\nPlease Enter Client Account Number: ";
         AccountNumber = clsInputValidate::ReadString();
-
-        while (clsBankClient::isClientExist(AccountNumber))
+        while (!clsBankClient::isClientExist(AccountNumber))
         {
-            cout << "\nAccount Number Is Already Used, Choose an another AccountNubmer";
+            cout << "\nAccount number not found, choose another one: ";
             AccountNumber = clsInputValidate::ReadString();
         }
 
-        clsBankClient NewClient = clsBankClient::GetAddNewClinetObject(AccountNumber);
+        clsBankClient Client1 = clsBankClient::Find(AccountNumber);
+        _PrintClient(Client1);
 
-        _ReadClientInfo(NewClient);
+        cout << "\nUpdate Client Info:";
+        cout << "\n______________________\n";
+
+        _ReadClientInfo(Client1);
 
         clsBankClient::enSaveResults SaveResult;
 
-        SaveResult = NewClient.Save();
+        SaveResult = Client1.Save();
+
         switch (SaveResult)
         {
         case clsBankClient::enSaveResults::svSucceeded:
             cout << "\nAccount Updated Successfully :-)\n";
-            _PrintClient(NewClient);
+            _PrintClient(Client1);
             break;
         case clsBankClient::enSaveResults::svFailedEmptyObject:
             cout << "\nError account was not saved its Empty\n";
-            break;
-        case clsBankClient::enSaveResults::svFailedAccountNumberExists:
-            cout << "\nFailed to Save, Account is already in use\n";
             break;
         }
     }

@@ -1,13 +1,13 @@
 #pragma once
 #include <iostream>
 #include <iomanip>
-#include "clsInputValidate.h"
+#include "utils\clsInputValidate.h"
 #include "clsScreen.h"
-#include "clsClientListScreen.h"
-#include "clsAddNewClientScreen.h"
-#include "clsDeleteClientScreen.h"
-#include "clsUpdateClientScreen.h"
-#include "clsFindClientScreen.h"
+#include "ClientScreen\clsClientListScreen.h"
+#include "ClientScreen\clsAddNewClientScreen.h"
+#include "ClientScreen\clsDeleteClientScreen.h"
+#include "ClientScreen\clsUpdateClientScreen.h"
+#include "ClientScreen\clsFindClientScreen.h"
 #include "clsTransactionsScreen.h"
 #include "clsManageUsers.h"
 

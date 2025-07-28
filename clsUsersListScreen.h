@@ -11,12 +11,12 @@ class clsUsersListScreen : protected clsScreen
 private:
     static void _PrintUserRecordLine(clsUser User)
     {
-        cout << setw(8) << left << "" << "| " << setw(12) << left << User.GetUserName();
+        cout << setw(8) << left << "" << "| " << setw(12) << left << User.getUserName();
         cout << "| " << setw(25) << left << User.FullName();
         cout << "| " << setw(12) << left << User.getPhone();
         cout << "| " << setw(20) << left << User.getEmail();
         cout << "| " << setw(10) << left << User.getPassword();
-        cout << "| " << setw(12) << left << User.getPersmissions();
+        cout << "| " << setw(12) << left << User.getPermissions();
     }
 
 public:

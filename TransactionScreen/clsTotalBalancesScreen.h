@@ -1,10 +1,10 @@
 #pragma once
 #include <iostream>
 #include <iomanip>
-#include "clsInputValidate.h"
-#include "clsScreen.h"
-#include "clsBankClient.h"
-#include "clsUtil.h"
+#include "..\utils\clsInputValidate.h"
+#include "..\clsScreen.h"
+#include "..\clsBankClient.h"
+#include "..\utils\clsUtil.h"
 
 class clsTotalBalancesScreen : clsScreen
 {

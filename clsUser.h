@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include "clsPerson.h"
-#include "clsString.h"
+#include "utils\clsString.h"
 #include <vector>
 #include <fstream>
 
@@ -38,9 +38,9 @@ private:
         UserRecord += User.getLastName() + seperator;
         UserRecord += User.getEmail() + seperator;
         UserRecord += User.getPhone() + seperator;
-        UserRecord += User.GetUserName() + seperator;
+        UserRecord += User.getUserName() + seperator;
         UserRecord += User.getPassword() + seperator;
-        UserRecord += to_string(User.getPersmissions());
+        UserRecord += to_string(User.getPermissions());
 
         return UserRecord;
     }
@@ -92,7 +92,7 @@ private:
 
         for (clsUser &user : vUsers)
         {
-            if (user.GetUserName() == GetUserName())
+            if (user.getUserName() == getUserName())
             {
                 user = *this;
                 break;
@@ -122,6 +122,18 @@ private:
     }
 
 public:
+    enum enPermissons
+    {
+        eAll = -1,
+        pListClients = 1,
+        pAddNewClient = 2,
+        pDeleteClient = 4,
+        pUpdateClient = 8,
+        pFindClient = 16,
+        pTransactions = 32,
+        pManageUsers = 64
+    };
+
     clsUser(enMode Mode, string FirstName, string LastName, string Email, string Phone, string UserName, string Password, int Permissions) : clsPerson(FirstName, LastName, Email, Phone)
     {
         this->_Mode = Mode;
@@ -140,7 +152,7 @@ public:
         return _MarkedForDelete;
     }
 
-    string GetUserName()
+    string getUserName()
     {
         return this->_UserName;
     }
@@ -157,7 +169,7 @@ public:
         this->_Password = Password;
     }
 
-    int getPersmissions()
+    int getPermissions()
     {
         return this->_Permissions;
     }
@@ -178,7 +190,7 @@ public:
             while (getline(MyFile, Line))
             {
                 clsUser User = _ConvertLinetoUserObject(Line);
-                if (User.GetUserName() == UserName)
+                if (User.getUserName() == UserName)
                 {
                     MyFile.close();
                     return User;
@@ -198,7 +210,7 @@ public:
             while (getline(MyFile, Line))
             {
                 clsUser user = _ConvertLinetoUserObject(Line);
-                if (user.GetUserName() == UserName && user.getPassword() == Password)
+                if (user.getUserName() == UserName && user.getPassword() == Password)
                 {
                     MyFile.close();
                     return user;
@@ -258,7 +270,7 @@ public:
         vector<clsUser> vUsers = _LoadUsersDataFromFile();
         for (clsUser &user : vUsers)
         {
-            if (user.GetUserName() == _UserName)
+            if (user.getUserName() == _UserName)
             {
                 user._MarkedForDelete = true;
                 break;

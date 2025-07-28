@@ -1,11 +1,11 @@
 #pragma once
 #include <iostream>
 #include <iomanip>
-#include "clsInputValidate.h"
+#include "utils\clsInputValidate.h"
 #include "clsScreen.h"
-#include "clsDepositScreen.h"
-#include "clsWithdrawScreen.h"
-#include "clsTotalBalancesScreen.h"
+#include "TransactionScreen\clsDepositScreen.h"
+#include "TransactionScreen\clsWithdrawScreen.h"
+#include "TransactionScreen\clsTotalBalancesScreen.h"
 
 class clsTransactionsScreen : protected clsScreen
 {

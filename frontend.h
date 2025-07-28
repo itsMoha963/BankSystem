@@ -4,8 +4,9 @@
 #include "clsBankClient.h"
 #include "clsInputValidate.h"
 #include "clsUtil.h"
+#include "clsScreen.h"
 
-class frontend
+class frontend : protected clsScreen
 {
 public:
     static void ReadClientInfo(clsBankClient &Client)
@@ -44,7 +45,7 @@ public:
         }
 
         clsBankClient Client1 = clsBankClient::Find(AccountNumber);
-        Client1.Print();
+        _PrintClient(Client1);
 
         cout << "\nUpdate Client Info:";
         cout << "\n______________________\n";
@@ -59,7 +60,7 @@ public:
         {
         case clsBankClient::enSaveResults::svSucceeded:
             cout << "\nAccount Updated Successfully :-)\n";
-            Client1.Print();
+            _PrintClient(Client1);
             break;
         case clsBankClient::enSaveResults::svFailedEmptyObject:
             cout << "\nError account was not saved its Empty\n";
@@ -90,7 +91,7 @@ public:
         {
         case clsBankClient::enSaveResults::svSucceeded:
             cout << "\nAccount Updated Successfully :-)\n";
-            NewClient.Print();
+            _PrintClient(NewClient);
             break;
         case clsBankClient::enSaveResults::svFailedEmptyObject:
             cout << "\nError account was not saved its Empty\n";
@@ -115,7 +116,7 @@ public:
 
         clsBankClient client1 = clsBankClient::Find(AccountNumber);
 
-        client1.Print();
+        _PrintClient(client1);
 
         cout << "\nAre you sure you want to delete this Account? y/n";
         char Answer = 'n';
@@ -126,7 +127,7 @@ public:
             if (client1.Delete())
             {
                 cout << "\n client delete successfully\n";
-                client1.Print();
+                _PrintClient(client1);
             }
             else
                 cout << "\n client is not deleted\n";
@@ -147,7 +148,7 @@ public:
 
         clsBankClient client1 = clsBankClient::Find(AccountNumber);
 
-        client1.Print();
+        _PrintClient(client1);
     }
 
     static void PrintClientRecordLine(clsBankClient Client)

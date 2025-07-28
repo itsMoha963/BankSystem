@@ -1,9 +1,10 @@
 #pragma once
 #include <iostream>
 #include <iomanip>
-#include "clsInputValidate.h"
+#include "utils\clsInputValidate.h"
 #include "clsScreen.h"
 #include "clsUsersListScreen.h"
+#include "clsAddNewUserScreen.h"
 
 class clsManageUsers : protected clsScreen
 {
@@ -37,7 +38,7 @@ private:
     }
     static void _ShowAddNewUserScreen()
     {
-        cout << "not implemented yet";
+        clsAddNewUserScreen::ShowAddNewUserScreen();
     }
     static void _ShowDeleteUserScreen()
     {

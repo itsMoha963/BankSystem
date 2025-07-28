@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include "clsPerson.h"
-#include "clsString.h"
+#include "utils\clsString.h"
 #include <vector>
 #include <fstream>
 
@@ -154,7 +154,7 @@ public:
         return _AccountBalance;
     }
 
-    /* void Print()
+    /*void Print()
     {
         cout << "\nClient Card:";
         cout << "\n____________________________________________";

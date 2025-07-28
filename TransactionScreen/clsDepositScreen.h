@@ -1,18 +1,13 @@
 #pragma once
 #include <iostream>
 #include <iomanip>
-#include "clsInputValidate.h"
-#include "clsScreen.h"
-#include "clsBankClient.h"
-using namespace std;
-class clsFindClientScreen : protected clsScreen
+#include "..\utils\clsInputValidate.h"
+#include "..\clsScreen.h"
+#include "..\clsBankClient.h"
+
+class clsDepositScreen : protected clsScreen
 {
 private:
-    static void _ScreenHeader()
-    {
-        string Title = "\t Find Client Screen";
-        _DrawScreenHeader(Title);
-    }
     static void _PrintClient(clsBankClient cli)
     {
         cout << "\nClient Card:";
@@ -27,11 +22,8 @@ private:
         cout << "\nBalance       : " << cli.getAccountBalance();
         cout << "\n____________________________________________\n";
     }
-
-public:
-    static void showFindClientScreen()
+    static string _ReadAccountNumber()
     {
-        _ScreenHeader();
         string AccountNumber = "";
         cout << "\nPlease Enter Account Number: ";
         AccountNumber = clsInputValidate::ReadString();
@@ -41,14 +33,34 @@ public:
             cout << "\nAccount Number Is not Found, Choose an another AccountNubmer";
             AccountNumber = clsInputValidate::ReadString();
         }
+        return AccountNumber;
+    }
 
-        clsBankClient client1 = clsBankClient::Find(AccountNumber);
+public:
+    static void ShowDepositScreen()
+    {
+        _DrawScreenHeader("\t   Deposit Screen");
 
-        if (!client1.IsEmpty())
-            cout << "\nClient Found :)\n";
+        string AccountNumber = _ReadAccountNumber();
+
+        clsBankClient cli = clsBankClient::Find(AccountNumber);
+        _PrintClient(cli);
+
+        double Amount = 0;
+        cout << "\nPlease enter deposit amount? ";
+        Amount = clsInputValidate::ReadPositiveDblNumber();
+
+        cout << "\n Are you sure you want to perform this transaction? ";
+        char Answer = 'n';
+        cin >> Answer;
+
+        if (Answer == 'Y' || Answer == 'y')
+        {
+            cli.Deposit(Amount);
+            cout << "\nAmount Deposited Successfully.\n";
+            cout << "\nNew Balance Is: " << cli.getAccountBalance();
+        }
         else
-            cout << "\nClient Was not Found :(";
-
-        _PrintClient(client1);
+            cout << "\nOperation was canelled.\n";
     }
 };

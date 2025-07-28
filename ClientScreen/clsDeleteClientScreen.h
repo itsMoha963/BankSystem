@@ -1,13 +1,18 @@
 #pragma once
 #include <iostream>
 #include <iomanip>
-#include "clsInputValidate.h"
-#include "clsScreen.h"
-#include "clsBankClient.h"
+#include "..\utils\clsInputValidate.h"
+#include "..\clsScreen.h"
+#include "..\clsBankClient.h"
 
-class clsDepositScreen : protected clsScreen
+class clsDeleteClientScreen : protected clsScreen
 {
 private:
+    static void _ScreenHeader()
+    {
+        string Title = "\t Delete Client Screen";
+        _DrawScreenHeader(Title);
+    }
     static void _PrintClient(clsBankClient cli)
     {
         cout << "\nClient Card:";
@@ -22,8 +27,11 @@ private:
         cout << "\nBalance       : " << cli.getAccountBalance();
         cout << "\n____________________________________________\n";
     }
-    static string _ReadAccountNumber()
+
+public:
+    static void DeleteClient()
     {
+        _ScreenHeader();
         string AccountNumber = "";
         cout << "\nPlease Enter Account Number: ";
         AccountNumber = clsInputValidate::ReadString();
@@ -33,34 +41,24 @@ private:
             cout << "\nAccount Number Is not Found, Choose an another AccountNubmer";
             AccountNumber = clsInputValidate::ReadString();
         }
-        return AccountNumber;
-    }
 
-public:
-    static void ShowDepositScreen()
-    {
-        _DrawScreenHeader("\t   Deposit Screen");
+        clsBankClient client1 = clsBankClient::Find(AccountNumber);
 
-        string AccountNumber = _ReadAccountNumber();
+        _PrintClient(client1);
 
-        clsBankClient cli = clsBankClient::Find(AccountNumber);
-        _PrintClient(cli);
-
-        double Amount = 0;
-        cout << "\nPlease enter deposit amount? ";
-        Amount = clsInputValidate::ReadPositiveDblNumber();
-
-        cout << "\n Are you sure you want to perform this transaction? ";
+        cout << "\nAre you sure you want to delete this Account? y/n";
         char Answer = 'n';
         cin >> Answer;
 
-        if (Answer == 'Y' || Answer == 'y')
+        if (Answer == 'y' | Answer == 'Y')
         {
-            cli.Deposit(Amount);
-            cout << "\nAmount Deposited Successfully.\n";
-            cout << "\nNew Balance Is: " << cli.getAccountBalance();
+            if (client1.Delete())
+            {
+                cout << "\n client delete successfully\n";
+                _PrintClient(client1);
+            }
+            else
+                cout << "\n client is not deleted\n";
         }
-        else
-            cout << "\nOperation was canelled.\n";
     }
 };
