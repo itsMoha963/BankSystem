@@ -10,6 +10,7 @@
 #include "ClientScreen\clsFindClientScreen.h"
 #include "clsTransactionsScreen.h"
 #include "clsManageUsersScreen.h"
+#include "Global.h"
 
 using namespace std;
 
@@ -67,9 +68,10 @@ private:
     {
         clsTransactionsScreen::ShowTransactionsMenue();
     }
-    static void _ShowExitScreen()
+    static void _Logout()
     {
-        cout << "TODO: Show Manage Users Menue Screen is not implemented yet...\n";
+        CurrentUser = clsUser::Find("", "");
+        // clsLoginScreen::ShowLoginScreen();
     }
     static void _PerformMainMenueOption(enMainMenueOptions MainMenueOption)
     {
@@ -112,7 +114,7 @@ private:
             break;
         case enMainMenueOptions::eExit:
             system("cls");
-            _ShowExitScreen();
+            _Logout();
             break;
         }
     }
