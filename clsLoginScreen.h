@@ -15,14 +15,24 @@ private:
         _DrawScreenHeader(Title);
     }
 
-    static void _Login()
+    static bool _Login()
     {
         bool LoginFailed = false;
         string Username, Password;
+        short counter = 3;
         do
         {
             if (LoginFailed)
+            {
                 cout << "\nInvalid Username/Password\n";
+                counter--;
+                cout << "you have " << counter << " Trials to login\n";
+            }
+            if (counter == 0)
+            {
+                cout << "you are locked after 3 failed trailes";
+                return false;
+            }
 
             cout << "\nEnter Username: ";
             Username = clsInputValidate::ReadString();
@@ -35,13 +45,14 @@ private:
         } while (LoginFailed);
 
         clsMainScreen::ShowMainMenue();
+        return true;
     }
 
 public:
-    static void ShowLoginScreen()
+    static bool ShowLoginScreen()
     {
         system("cls");
         _ScreenHeader();
-        _Login();
+        return _Login();
     }
 };

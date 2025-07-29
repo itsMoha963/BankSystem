@@ -4,17 +4,25 @@
 #include "clsBankClient.h"
 #include "clsUser.h"
 #include "Global.h"
+#include "utils\clsDate.h"
 using namespace std;
 class clsScreen
 {
 protected:
     static void _DrawScreenHeader(string Title, string SubTitle = "")
     {
+
         cout << "\t\t\t\t\t_____________________________________";
         cout << "\n\n\t\t\t\t\t   " << Title;
         if (SubTitle != "")
             cout << "\n\t\t\t\t\t   " << SubTitle;
         cout << "\n\t\t\t\t\t_____________________________________\n\n";
+        cout << "\t\t\t\t\tUser: " << CurrentUser.getUserName() << "\n";
+        cout << "\t\t\t\t\tDate: " << clsDate::DateToString(clsDate()) << "\n";
+        /*clsDate().GetDay();
+         clsDate().GetMonth();
+         clsDate().GetYear();*/
+        //! valid way to create an object directly by calling the constructor Temporary!!!!!
     }
     static void _PrintClient(clsBankClient cli)
     {
