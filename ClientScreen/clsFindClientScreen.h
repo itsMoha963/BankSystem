@@ -4,6 +4,8 @@
 #include "..\utils\clsInputValidate.h"
 #include "..\clsScreen.h"
 #include "..\clsBankClient.h"
+#include "..\clsUser.h"
+
 using namespace std;
 class clsFindClientScreen : protected clsScreen
 {
@@ -17,6 +19,10 @@ private:
 public:
     static void showFindClientScreen()
     {
+        if (!CheckAccesRights(clsUser::enPermissons::pFindClient))
+        {
+            return;
+        }
         _ScreenHeader();
         string AccountNumber = "";
         cout << "\nPlease Enter Account Number: ";

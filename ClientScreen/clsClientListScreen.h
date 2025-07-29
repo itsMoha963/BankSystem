@@ -3,6 +3,7 @@
 #include <iomanip>
 #include "..\clsBankClient.h"
 #include "..\clsScreen.h"
+#include "..\clsUser.h"
 using namespace std;
 class clsClientListScreen : protected clsScreen
 {
@@ -21,6 +22,10 @@ private:
 public:
     static void ShowClientsList()
     {
+        if (!CheckAccesRights(clsUser::enPermissons::pListClients))
+        {
+            return;
+        }
 
         vector<clsBankClient> vClients = clsBankClient::GetClientsList();
         string Title = "\t Client List Screen";

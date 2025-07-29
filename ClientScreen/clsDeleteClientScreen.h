@@ -4,6 +4,7 @@
 #include "..\utils\clsInputValidate.h"
 #include "..\clsScreen.h"
 #include "..\clsBankClient.h"
+#include "..\clsUser.h"
 
 class clsDeleteClientScreen : protected clsScreen
 {
@@ -31,6 +32,10 @@ private:
 public:
     static void DeleteClient()
     {
+        if (!CheckAccesRights(clsUser::enPermissons::pDeleteClient))
+        {
+            return;
+        }
         _ScreenHeader();
         string AccountNumber = "";
         cout << "\nPlease Enter Account Number: ";
