@@ -24,7 +24,12 @@ public:
 
         while (!clsBankClient::isClientExist(AccountNumber))
         {
-            cout << "\nAccount Number Is not Found, Choose an another AccountNubmer";
+            char A = 'n';
+            cout << "do you want to EXIT this process? y/n ";
+            cin >> A;
+            if (A == 'Y' || A == 'y')
+                return;
+            cout << "\nAccount Number Is not Found, Choose an another AccountNubmer: ";
             AccountNumber = clsInputValidate::ReadString();
         }
 

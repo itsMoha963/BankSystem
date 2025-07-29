@@ -5,8 +5,10 @@
 #include "clsScreen.h"
 #include "clsUsersListScreen.h"
 #include "clsAddNewUserScreen.h"
-
-class clsManageUsers : protected clsScreen
+#include "clsDeleteUserScreen.h"
+#include "clsUpdateUserScreen.h"
+#include "clsFindUserScreen.h"
+class clsManageUsersScreen : protected clsScreen
 {
 private:
     enum enManageUsersMenueOption
@@ -42,15 +44,15 @@ private:
     }
     static void _ShowDeleteUserScreen()
     {
-        cout << "not implemented yet";
+        clsDeleteUserScreen::ShowDeleteUserScreen();
     }
     static void _SchowUpdateUserScreen()
     {
-        cout << "not implemented yet";
+        clsUpdateUserScreen::ShowUpdateUserScreen();
     }
     static void _ShowFindUserScreen()
     {
-        cout << "not implemented yet";
+        clsFindUserScreen::ShowFindUserScreen();
     }
     static void _PerformManageUsersMenueOption(enManageUsersMenueOption MUOption)
     {

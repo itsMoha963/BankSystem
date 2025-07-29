@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include <iomanip>
+#include "clsBankClient.h"
+#include "clsUser.h"
 using namespace std;
 class clsScreen
 {
@@ -26,5 +28,20 @@ protected:
         cout << "\nPassword      : " << cli.getPinCode();
         cout << "\nBalance       : " << cli.getAccountBalance();
         cout << "\n____________________________________________\n";
+    }
+
+    static void _PrintUser(clsUser User)
+    {
+        cout << "\nUser Card:";
+        cout << "\n___________________";
+        cout << "\nFirstName   : " << User.getFirstName();
+        cout << "\nLastName    : " << User.getLastName();
+        cout << "\nFull Name   : " << User.FullName();
+        cout << "\nEmail       : " << User.getEmail();
+        cout << "\nPhone       : " << User.getPhone();
+        cout << "\nUser Name   : " << User.getUserName();
+        cout << "\nPassword    : " << User.getPassword();
+        cout << "\nPermissions : " << User.getPermissions();
+        cout << "\n___________________\n";
     }
 };
