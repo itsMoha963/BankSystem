@@ -3,11 +3,11 @@
 #include <iomanip>
 #include "utils\clsInputValidate.h"
 #include "clsScreen.h"
-#include "clsUsersListScreen.h"
-#include "clsAddNewUserScreen.h"
-#include "clsDeleteUserScreen.h"
-#include "clsUpdateUserScreen.h"
-#include "clsFindUserScreen.h"
+#include "UserScreen\clsUsersListScreen.h"
+#include "UserScreen\clsAddNewUserScreen.h"
+#include "UserScreen\clsDeleteUserScreen.h"
+#include "UserScreen\clsUpdateUserScreen.h"
+#include "UserScreen\clsFindUserScreen.h"
 class clsManageUsersScreen : protected clsScreen
 {
 private:

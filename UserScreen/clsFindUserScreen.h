@@ -1,8 +1,8 @@
 #pragma once
 #include <iostream>
-#include "utils\clsInputValidate.h"
-#include "clsScreen.h"
-#include "clsUser.h"
+#include "..\utils\clsInputValidate.h"
+#include "..\clsScreen.h"
+#include "..\clsUser.h"
 
 using namespace std;
 

@@ -1,8 +1,8 @@
 #pragma once
 #include <iostream>
-#include "clsScreen.h"
-#include "utils\clsInputValidate.h"
-#include "clsUser.h"
+#include "..\clsScreen.h"
+#include "..\utils\clsInputValidate.h"
+#include "..\clsUser.h"
 #include <iomanip>
 
 class clsAddNewUserScreen : protected clsScreen

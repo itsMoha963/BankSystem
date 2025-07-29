@@ -1,9 +1,9 @@
 #pragma once
 #include <iostream>
 #include <iomanip>
-#include "utils\clsInputValidate.h"
-#include "clsScreen.h"
-#include "clsUser.h"
+#include "..\utils\clsInputValidate.h"
+#include "..\clsScreen.h"
+#include "..\clsUser.h"
 
 using namespace std;
 class clsUpdateUserScreen : protected clsScreen
