@@ -23,7 +23,15 @@ private:
     int _Permissions;
 
     bool _MarkedForDelete = false;
-
+    string _convertUserToLine(string delimeter = "#//#")
+    {
+        string us;
+        us += clsDate::GetSystemDateTimeString();
+        us += delimeter + getUserName() + delimeter;
+        us += getPassword() + delimeter;
+        us += to_string(getPermissions());
+        return us;
+    }
     static clsUser _ConvertLinetoUserObject(string Line, string seperator = "#//#")
     {
         vector<string> vUserData;
@@ -298,5 +306,15 @@ public:
             return true;
         else
             return false;
+    }
+    void LogFile()
+    {
+        fstream MyFile;
+        MyFile.open("LogsRegister.txt", ios::out | ios::app);
+        if (MyFile.is_open())
+        {
+            MyFile << _convertUserToLine() << endl;
+            MyFile.close();
+        }
     }
 };

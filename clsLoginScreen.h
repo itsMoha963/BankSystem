@@ -3,11 +3,15 @@
 #include "clsMainScreen.h"
 #include "clsScreen.h"
 #include "utils\clsInputValidate.h"
+#include "utils\clsDate.h"
+#include "utils\clsString.h"
+#include <fstream>
 #include "clsUser.h"
 #include "Global.h"
 using namespace std;
 class clsLoginScreen : protected clsScreen
 {
+
 private:
     static void _ScreenHeader()
     {
@@ -43,7 +47,7 @@ private:
 
             LoginFailed = CurrentUser.IsEmpty();
         } while (LoginFailed);
-
+        CurrentUser.LogFile();
         clsMainScreen::ShowMainMenue();
         return true;
     }
