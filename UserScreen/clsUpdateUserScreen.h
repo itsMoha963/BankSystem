@@ -77,6 +77,10 @@ private:
         if (Answer == 'y' || Answer == 'Y')
             Permissons += clsUser::enPermissons::pManageUsers;
 
+        cout << "\n Logs Register List ? y/n? ";
+        cin >> Answer;
+        if (Answer == 'y' || Answer == 'Y')
+            Permissons += clsUser::enPermissons::PLogRegisterList;
         return Permissons;
     }
 

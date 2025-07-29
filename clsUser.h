@@ -130,6 +130,28 @@ private:
     }
 
 public:
+    struct stLoginRegisterRecord
+    {
+        string DateTime;
+        string UserName;
+        string Password;
+        int Permissions;
+    };
+
+private:
+    static stLoginRegisterRecord _ConvertLogRegLineToRecord(string Line, string delimeter = "#//#")
+    {
+        stLoginRegisterRecord log;
+        vector<string> logDataLine = clsString::SplitString(Line, delimeter);
+        log.DateTime = logDataLine[0];
+        log.UserName = logDataLine[1];
+        log.Password = logDataLine[2];
+        log.Permissions = stoi(logDataLine[3]);
+
+        return log;
+    }
+
+public:
     enum enPermissons
     {
         eAll = -1,
@@ -139,7 +161,8 @@ public:
         pUpdateClient = 8,
         pFindClient = 16,
         pTransactions = 32,
-        pManageUsers = 64
+        pManageUsers = 64,
+        PLogRegisterList = 128
     };
 
     clsUser(enMode Mode, string FirstName, string LastName, string Email, string Phone, string UserName, string Password, int Permissions) : clsPerson(FirstName, LastName, Email, Phone)
@@ -316,5 +339,24 @@ public:
             MyFile << _convertUserToLine() << endl;
             MyFile.close();
         }
+    }
+
+    static vector<stLoginRegisterRecord> GetLoginRegisterlist()
+    {
+        vector<stLoginRegisterRecord> vLogRegs;
+        fstream MyFile;
+        MyFile.open("LogsRegister.txt", ios::in);
+        if (MyFile.is_open())
+        {
+            string line;
+            stLoginRegisterRecord log;
+            while (getline(MyFile, line))
+            {
+                log = _ConvertLogRegLineToRecord(line);
+                vLogRegs.push_back(log);
+            }
+            MyFile.close();
+        }
+        return vLogRegs;
     }
 };

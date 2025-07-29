@@ -11,7 +11,7 @@
 #include "clsTransactionsScreen.h"
 #include "clsManageUsersScreen.h"
 #include "Global.h"
-
+#include "clsLogsScreen.h"
 using namespace std;
 
 class clsMainScreen : protected clsScreen
@@ -26,12 +26,13 @@ private:
         eFindClient = 5,
         eSchowTransactionsMenue = 6,
         eManageUsers = 7,
-        eExit = 8
+        eLogsMenue = 8,
+        eExit = 9
     };
     static short _ReadMainMenueOption()
     {
         cout << setw(37) << left << "" << "Choose what do you want to do? [1 to 8]";
-        short choice = clsInputValidate::ReadIntNumberBetween(1, 8, "Invalid Please Enter A Number Between 1 and 8");
+        short choice = clsInputValidate::ReadIntNumberBetween(1, 9, "Invalid Please Enter A Number Between 1 and 9");
         return choice;
     }
     static void _GoBackToMainMenue()
@@ -67,6 +68,10 @@ private:
     static void _ShowTransactionsMenue()
     {
         clsTransactionsScreen::ShowTransactionsMenue();
+    }
+    static void _ShowLogsScreen()
+    {
+        clsLogsScreen::ShowLoginRegisterScreen();
     }
     static void _Logout()
     {
@@ -112,6 +117,11 @@ private:
             _ShowTransactionsMenue();
             _GoBackToMainMenue();
             break;
+        case enMainMenueOptions::eLogsMenue:
+            system("cls");
+            _ShowLogsScreen();
+            _GoBackToMainMenue();
+            break;
         case enMainMenueOptions::eExit:
             system("cls");
             _Logout();
@@ -136,7 +146,8 @@ public:
         cout << setw(37) << left << "" << "\t[5] Find Client.\n";
         cout << setw(37) << left << "" << "\t[6] Transactions.\n";
         cout << setw(37) << left << "" << "\t[7] Manage Users.\n";
-        cout << setw(37) << left << "" << "\t[8] Logout.\n";
+        cout << setw(37) << left << "" << "\t[8] Login Register.\n";
+        cout << setw(37) << left << "" << "\t[9] Logout.\n";
         cout << setw(37) << left << "" << "===========================================\n";
 
         _PerformMainMenueOption((enMainMenueOptions)_ReadMainMenueOption());
