@@ -11,7 +11,7 @@
 #include "clsTransactionsScreen.h"
 #include "clsManageUsersScreen.h"
 #include "Global.h"
-#include "clsLogsScreen.h"
+#include "ClientScreen\clsLogsScreen.h"
 using namespace std;
 
 class clsMainScreen : protected clsScreen

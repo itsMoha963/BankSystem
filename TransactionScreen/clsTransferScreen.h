@@ -74,6 +74,7 @@ public:
             if (SourceClient.Transfer(Amount, DestinationClient))
             {
                 cout << "\nTransfer done successfully\n";
+                SourceClient.TransferLog(Amount, DestinationClient);
             }
             else
             {

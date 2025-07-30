@@ -4,6 +4,7 @@
 #include "utils\clsString.h"
 #include <vector>
 #include <fstream>
+#include "Global.h"
 
 using namespace std;
 
@@ -115,6 +116,47 @@ private:
             MyFile << stDataline << endl;
             MyFile.close();
         }
+    }
+    string _convertClientTransfareToLine(double Amount, clsBankClient destinationClient, string delimeter = "#//#")
+    {
+        string TrLog = "";
+        TrLog += clsDate::GetSystemDateTimeString() + delimeter;
+        TrLog += getAccountNumber() + delimeter;
+        TrLog += destinationClient.getAccountNumber() + delimeter;
+        TrLog += to_string(Amount) + delimeter;
+        TrLog += to_string(getAccountBalance()) + delimeter;
+        TrLog += to_string(destinationClient.getAccountBalance()) + delimeter;
+        TrLog += CurrentUser.getUserName();
+
+        return TrLog;
+    }
+
+public:
+    struct stLogTransferRecord
+    {
+        string DateTime;
+        string SourceAccountNumber;
+        string DestinationAccountNumber;
+        double Amount;
+        string SourceBalance;
+        string DestinationBalance;
+        string UserName;
+    };
+
+private:
+    static stLogTransferRecord _ConvertTransferLogToRecord(string line, string delimeter = "#//#")
+    {
+        stLogTransferRecord TrLog;
+        vector<string> logDataLine = clsString::SplitString(line, delimeter);
+        TrLog.DateTime = logDataLine[0];
+        TrLog.SourceAccountNumber = logDataLine[1];
+        TrLog.DestinationAccountNumber = logDataLine[2];
+        TrLog.Amount = stod(logDataLine[3]);
+        TrLog.SourceBalance = logDataLine[4];
+        TrLog.DestinationBalance = logDataLine[5];
+        TrLog.UserName = logDataLine[6];
+
+        return TrLog;
     }
 
 public:
@@ -318,5 +360,35 @@ public:
         WithDraw(Amount);
         DestinationClient.Deposit(Amount);
         return true;
+    }
+
+    void TransferLog(double Amount, clsBankClient destinationClient)
+    {
+        fstream Myfile;
+        Myfile.open("TransferLogs.txt", ios::out | ios::app);
+        if (Myfile.is_open())
+        {
+            Myfile << _convertClientTransfareToLine(Amount, destinationClient) << endl;
+            Myfile.close();
+        }
+    }
+    static vector<stLogTransferRecord> GetLogTransferList()
+    {
+        vector<stLogTransferRecord> vTrLog;
+        fstream Myfile;
+        Myfile.open("TransferLogs.txt", ios::in);
+
+        if (Myfile.is_open())
+        {
+            string line;
+            stLogTransferRecord log;
+            while (getline(Myfile, line))
+            {
+                log = _ConvertTransferLogToRecord(line);
+                vTrLog.push_back(log);
+            }
+            Myfile.close();
+        }
+        return vTrLog;
     }
 };

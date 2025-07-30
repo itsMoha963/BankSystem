@@ -25,7 +25,7 @@ private:
     bool _MarkedForDelete = false;
     string _convertUserToLine(string delimeter = "#//#")
     {
-        string us;
+        string us = "";
         us += clsDate::GetSystemDateTimeString();
         us += delimeter + getUserName() + delimeter;
         us += getPassword() + delimeter;
