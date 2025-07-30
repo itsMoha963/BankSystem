@@ -310,4 +310,13 @@ public:
 
         return true; // Indicate successs
     }
+
+    bool Transfer(float Amount, clsBankClient &DestinationClient)
+    {
+        if (Amount > getAccountBalance())
+            return false;
+        WithDraw(Amount);
+        DestinationClient.Deposit(Amount);
+        return true;
+    }
 };

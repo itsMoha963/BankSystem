@@ -17,7 +17,7 @@ protected:
         if (SubTitle != "")
             cout << "\n\t\t\t\t\t   " << SubTitle;
         cout << "\n\t\t\t\t\t_____________________________________\n\n";
-        cout << "\t\t\t\t\tUser: " << CurrentUser.getUserName() << "\n";
+        cout << "\t\t\t\t\tUser: " << CurrentUser.getUserName();
         cout << "\t\t\t\t\tDate: " << clsDate::DateToString(clsDate()) << "\n";
         /*clsDate().GetDay();
          clsDate().GetMonth();
