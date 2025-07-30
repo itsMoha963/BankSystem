@@ -138,8 +138,8 @@ public:
         string SourceAccountNumber;
         string DestinationAccountNumber;
         double Amount;
-        string SourceBalance;
-        string DestinationBalance;
+        double SourceBalance;
+        double DestinationBalance;
         string UserName;
     };
 
@@ -152,8 +152,8 @@ private:
         TrLog.SourceAccountNumber = logDataLine[1];
         TrLog.DestinationAccountNumber = logDataLine[2];
         TrLog.Amount = stod(logDataLine[3]);
-        TrLog.SourceBalance = logDataLine[4];
-        TrLog.DestinationBalance = logDataLine[5];
+        TrLog.SourceBalance = stod(logDataLine[4]);
+        TrLog.DestinationBalance = stod(logDataLine[5]);
         TrLog.UserName = logDataLine[6];
 
         return TrLog;

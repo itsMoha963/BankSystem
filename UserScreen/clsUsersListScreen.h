@@ -3,6 +3,7 @@
 #include "..\clsScreen.h"
 #include "..\clsUser.h"
 #include <iomanip>
+#include "..\Global.h"
 
 using namespace std;
 
@@ -53,5 +54,7 @@ public:
         cout << setw(8) << left << "" << "\n\t_______________________________________________________";
         cout << "______________________________________________\n"
              << endl;
+        cout << "encrypted: " << clsUtil::EncryptText(vUsers[0].getPassword()) << "\n";
+        cout << "decrypted: " << clsUtil::DecrypText(clsUtil::EncryptText(vUsers[0].getPassword())) << "\n";
     }
 };
