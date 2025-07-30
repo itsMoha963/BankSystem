@@ -81,6 +81,11 @@ private:
         cin >> Answer;
         if (Answer == 'y' || Answer == 'Y')
             Permissons += clsUser::enPermissons::PLogRegisterList;
+
+        cout << "\n Currency Menue? y/n? ";
+        cin >> Answer;
+        if (Answer == 'y' || Answer == 'Y')
+            Permissons += clsUser::enPermissons::PCurrencyMenue;
         return Permissons;
     }
 

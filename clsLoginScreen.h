@@ -26,12 +26,6 @@ private:
         short counter = 3;
         do
         {
-            cout << "do you want to exit the program? E/e or n ";
-            char exit = 'n';
-            cin >> exit;
-            if (exit == 'E' || exit == 'e')
-                return false;
-
             if (LoginFailed)
             {
                 cout << "\nInvalid Username/Password\n";

@@ -69,10 +69,15 @@ private:
         cin >> Answer;
         if (Answer == 'y' || Answer == 'Y')
             Permissons += clsUser::enPermissons::pManageUsers;
-        cout << "\n Logs Register List ? y/n? ";
+        cout << "\n Logs Register List? y/n? ";
         cin >> Answer;
         if (Answer == 'y' || Answer == 'Y')
             Permissons += clsUser::enPermissons::PLogRegisterList;
+
+        cout << "\n Currency Menue? y/n? ";
+        cin >> Answer;
+        if (Answer == 'y' || Answer == 'Y')
+            Permissons += clsUser::enPermissons::PCurrencyMenue;
 
         return Permissons;
     }

@@ -162,7 +162,8 @@ public:
         pFindClient = 16,
         pTransactions = 32,
         pManageUsers = 64,
-        PLogRegisterList = 128
+        PLogRegisterList = 128,
+        PCurrencyMenue = 256
     };
 
     clsUser(enMode Mode, string FirstName, string LastName, string Email, string Phone, string UserName, string Password, int Permissions) : clsPerson(FirstName, LastName, Email, Phone)
