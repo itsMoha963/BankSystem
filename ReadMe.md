@@ -2,7 +2,7 @@
 
 Dieses Projekt implementiert einen **kompletten Banksimulator** mit grundlegenden Funktionen zur **Kunden- und Kontoverwaltung**, inkl. Rechteverwaltung und Währungsumrechnung.
 
-## ✨ Funktionen
+##  Funktionen
 
 ### 👤 Kundenverwaltung
 - Anlegen neuer Kunden (`_AddNew`)  
