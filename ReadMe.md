@@ -1,38 +1,29 @@
-# OOP Projects
+# 🏦 Banksimulator
 
-This repository contains Object-Oriented Programming (OOP) project implemented in C++. This project demonstrates different OOP concepts such as classes, inheritance, polymorphism, encapsulation, and more.
+Dieses Projekt implementiert einen **kompletten Banksimulator** mit grundlegenden Funktionen zur **Kunden- und Kontoverwaltung**, inkl. Rechteverwaltung und Währungsumrechnung.
 
-## Projects
+## ✨ Funktionen
 
-1. **sClient Class**
-   - Demonstrates the use of classes and encapsulation.
-   - Includes getters and setters for private member variables.
-   - Example usage of the `sClient` class to manage client information.
+### 👤 Kundenverwaltung
+- Anlegen neuer Kunden (`_AddNew`)  
+- Löschen von Kunden (`Delete`)  
+- Abfragen des Kontostands (`getAccountBalance`)  
+- Umsetzung in der Klasse **`clsBankClient`**
 
-## Getting Started
+### 💳 Banktransaktionen
+- Einzahlungen  
+- Auszahlungen  
+- Überweisungen  
+- Implementiert innerhalb von **`clsBankClient`**
 
-To get started with these projects, follow the instructions below.
+### 🔑 Benutzer- und Rechteverwaltung
+- Verwaltung von Systemnutzern über **`clsUser`**  
+- Zugriffskontrolle mittels `CheckAccesRights` und Rechten wie *eAll* oder *pListClients*  
+- ⚠️ Hinweis: Es existiert aktuell **nur ein Login für Systemnutzer**, eine separate Client-Anmeldung ist nicht vorhanden
 
-### Prerequisites
+### 🛠️ Eigene Hilfsbibliotheken
+- String-Operationen und Datumsfunktionen über selbst entwickelte Klassen im Verzeichnis **`utils/`**
 
-- A C++ compiler (e.g., GCC, Clang, MSVC)
-- A code editor or IDE (e.g., Visual Studio Code, CLion, Visual Studio)
-
-### Building the Projects
-
-1. Clone the repository:
-   ````sh
-   git clone https://github.com/yourusername/oopProjects.git
-   cd oopProjects```
-   ````
-2. Compile the code:
-
-   ```sh
-   g++ -o main main.cpp sClient.cpp
-   ```
-
-3. Run the executable:
-
-   ```sh
-   ./main
-   ```
+### 💱 Währungswechsel / Wechselgeld-Funktion
+- Realisiert durch eine **Currency-Klasse** mit Umrechnungslogik  
+- Eigener **Rechner-Bildschirm** zur einfachen Umrechnung von Währungen
