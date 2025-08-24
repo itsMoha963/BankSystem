@@ -19,8 +19,7 @@ Dieses Projekt implementiert einen **kompletten Banksimulator** mit grundlegende
 ### 🔑 Benutzer- und Rechteverwaltung
 - Verwaltung von Systemnutzern über **`clsUser`**  
 - Zugriffskontrolle mittels `CheckAccesRights` und Rechten wie *eAll* oder *pListClients*  
-- ⚠️ Hinweis: Es existiert aktuell **nur ein Login für Systemnutzer**, eine separate Client-Anmeldung ist nicht vorhanden
-
+- Es existiert aktuell **ein Login für Systemnutzer**.
 ### 🛠️ Eigene Hilfsbibliotheken
 - String-Operationen und Datumsfunktionen über selbst entwickelte Klassen im Verzeichnis **`utils/`**
 
