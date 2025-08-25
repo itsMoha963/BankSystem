@@ -14,17 +14,16 @@ Dieses Projekt implementiert einen **kompletten Banksimulator** mit grundlegende
 - Einzahlungen  
 - Auszahlungen  
 - Überweisungen  
-- Implementiert innerhalb von **`clsBankClient`**
 
 ### 🔑 Benutzer- und Rechteverwaltung
 - Verwaltung von Systemnutzern über **`clsUser`**  
-- Zugriffskontrolle mittels `CheckAccesRights` und Rechten wie *eAll* oder *pListClients*  
+- Zugriffskontrolle  
 - Es existiert aktuell **ein Login für Systemnutzer**.
 ### 🛠️ Eigene Hilfsbibliotheken
 - String-Operationen und Datumsfunktionen über selbst entwickelte Klassen im Verzeichnis **`utils/`**
 
 ### 💱 Währungswechsel / Wechselgeld-Funktion
-- Realisiert durch eine **Currency-Klasse** mit Umrechnungslogik  
+- Realisiert durch eine **Currency-Klassen** mit Umrechnungslogik  
 - Eigener **Rechner-Bildschirm** zur einfachen Umrechnung von Währungen
   
 ## 📌 To-Do Liste
